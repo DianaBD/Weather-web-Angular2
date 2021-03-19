@@ -1,0 +1,9 @@
+<h2>Select Location</h2>
+<div class="locations-div">
+  <div class="weathers-menu">
+    <a *ngFor="let weather of weathers" routerLink="/detail/{{weather.id}}">
+      {{weather.name}}
+    </a>
+  </div>
+</div>
+

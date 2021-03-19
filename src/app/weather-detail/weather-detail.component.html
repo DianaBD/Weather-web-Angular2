@@ -1,0 +1,35 @@
+<!-- afiseaza detaliile pentru orasul selectat -->
+<div *ngIf="weather">
+    <h2>Weather in {{weather.name | uppercase}}</h2>
+    <!-- temperatura, minima, maxima, vant rotunjite folosind proprietatea math = Math-->
+    <div class="details">
+        <mat-card>
+            <img width="50" alt=""
+    src="https://www.flaticon.com/svg/vstatic/svg/2044/2044011.svg?token=exp=1616190214~hmac=fe2cbb88ef591c9828f6f7b4ea23a6de" />
+            Temperature: <b>{{math.floor(temp)}}°</b>
+        </mat-card>
+        <mat-card>
+            <img width="50" alt=""
+            src="https://www.flaticon.com/svg/vstatic/svg/2044/2044300.svg?token=exp=1616190193~hmac=2b4eb9a1fe97f7af82c9a0952c9b027d"/>
+            Min Temperature: <b>{{math.floor(min)}}°</b>
+        </mat-card>
+        <mat-card>
+            <img width="50" alt=""
+            src="https://www.flaticon.com/svg/vstatic/svg/2044/2044154.svg?token=exp=1616190148~hmac=c79271cab95ac220976a2f00b50e5f0d"/>
+            Max Temperature: <b>{{math.floor(max)}}°</b>
+        </mat-card>
+        <mat-card>
+            <img width="50" alt=""
+            src="https://www.flaticon.com/svg/vstatic/svg/3579/3579552.svg?token=exp=1616190273~hmac=2b3a4b66db936a44151b51e7a5036146"/>
+            Wind-Speed: <b>{{weather.wind.speed}} km/h</b>
+        </mat-card>
+    </div>
+
+    <!-- buton cu latitudine & longitudine care porneste un popup cu harta-->
+    <button mat-raised-button (click)="openDialog()" [weather]="weather">
+        Latitude {{weather.coord.lat}} | Longitude {{weather.coord.lon}}
+    </button>
+
+</div>
+
+
